@@ -1,0 +1,540 @@
+/* --- Global Styles & Variables --- */
+:root {
+    --color-bg-sidebar: #0e0e0e;
+    --color-bg-main: #e0e0e0;
+    --color-bg-card: #ffffff;
+    --color-bg-card-alt: #fafafa; /* Off-white background */
+    --color-text-dark: #333333;
+    --color-text-light: #f0f0f0;
+    --color-text-muted: #888888;
+    --color-increase: #2ecc71;
+    --color-decrease: #e74c3c;
+    --font-primary: 'Poppins', sans-serif;
+    --shadow-light: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-primary);
+    background-color: var(--color-bg-main);
+    color: var(--color-text-dark);
+    display: flex;
+    min-height: 100vh;
+}
+
+/* ======== SIDEBAR ======== */
+.sidebar {
+    width: 90px;
+    background-color: var(--color-bg-sidebar);
+    color: var(--color-text-light);
+    padding: 2.5rem 0; /* Padding at the very top and bottom */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    justify-content: space-between; /* This creates the large gap */
+    min-height: 100vh;
+}
+
+.sidebar-top-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem; /* Space between logo and nav block */
+}
+
+.sidebar-logo {
+    width: 60px;
+    height: auto;
+}
+
+.sidebar-logo .logo-image {
+    width: 100%;
+    height: auto;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* Space between icons */
+}
+
+.sidebar-nav li {
+    position: relative;
+    text-align: center;
+}
+
+.sidebar-nav a {
+    color: var(--color-text-muted);
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    display: block;
+    transition: color 0.3s ease;
+}
+
+.sidebar-nav a:hover {
+    color: var(--color-text-light);
+}
+
+.sidebar-nav li.active::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -10px;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid var(--color-bg-sidebar);
+}
+
+.sidebar-nav li.active a {
+    color: var(--color-text-light);
+}
+
+/* Styles for the separate logout button */
+.sidebar-logout a {
+    color: var(--color-text-muted);
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    display: block;
+    transition: color 0.3s ease;
+}
+
+.sidebar-logout a:hover {
+    color: var(--color-text-light);
+}
+
+/* ======== MAIN CONTENT ======== */
+.main-content {
+    flex-grow: 1;
+    padding: 1.5rem 2.5rem;
+    overflow-y: auto;
+}
+
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    background: var(--color-bg-card);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-light);
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.header-left .fa-th-large {
+    font-size: 1.5rem;
+    color: var(--color-text-dark);
+}
+
+.header-left .fa-play {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+}
+
+.header-left h1 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-left: 0.25rem;
+}
+
+.header-right i {
+    font-size: 1.25rem;
+    background: var(--color-bg-main); /* Gray background */
+    padding: 0.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* ======== CARDS CONTAINER ======== */
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.card {
+    background: var(--color-bg-card); /* Default white background */
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-light);
+}
+
+/* --- Welcome Card Styles --- */
+.welcome-card {
+    flex-basis: 35%;
+    flex-grow: 1;
+    display: flex;
+    background-color: var(--color-bg-card-alt);
+    min-height: 160px;
+    position: relative;
+    overflow: hidden;
+}
+
+.welcome-text {
+    flex-basis: 60%;
+    position: relative;
+    z-index: 2;
+    padding-bottom: 1rem;
+}
+
+.welcome-text h2 {
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.welcome-text p {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+}
+
+.welcome-image {
+    position: absolute;
+    bottom: -10px;
+    right: -20px;
+    width: 250px;
+    height: 180px;
+    z-index: 1;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.welcome-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: bottom right;
+}
+
+
+/* Stats Cards */
+.stats-container {
+    flex-basis: 18%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.stat-card {
+    padding: 1rem;
+    background: var(--color-bg-card); /* White */
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-right: 0.5rem;
+}
+
+.stat-change {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+.stat-change.increase { color: var(--color-increase); }
+.stat-change.decrease { color: var(--color-decrease); }
+
+.stat-label {
+    color: var(--color-text-muted);
+    font-size: 0.8rem;
+    margin-top: 0.25rem;
+}
+
+/* --- Top Haircuts Card --- */
+.top-haircuts-card {
+    flex-basis: 30%;
+    flex-grow: 1;
+    background: var(--color-bg-card); /* White */
+}
+
+.chart-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.pie-chart-layout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.pie-chart {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    position: relative;
+    background: conic-gradient(
+        #f39c12 0% 43%,
+        #f9a825 43% 68%,
+        #fbc02d 68% 83%,
+        #fce49c 83% 93%,
+        #fff9c4 93% 100%
+    );
+    flex-shrink: 0;
+}
+
+.pie-label {
+    position: absolute;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: white;
+}
+
+.pie-legend {
+    list-style: none;
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.pie-legend li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 500;
+}
+
+.color-dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px; /* Rounded square */
+    display: inline-block;
+}
+
+/* --- Recent Card (Table) --- */
+.recent-card {
+    flex-basis: 60%;
+    flex-grow: 1;
+    background-color: var(--color-bg-card-alt); /* Off-white */
+}
+
+.recent-card h3 {
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.recent-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+}
+
+.recent-table th,
+.recent-table td {
+    padding: 0.75rem 0.5rem;
+    text-align: left;
+    border-bottom: 1px solid #f0f0f0;
+    background-color: transparent;
+}
+
+.recent-table th {
+    background-color: #f0f0f0;
+    font-weight: 500;
+    color: var(--color-text-muted);
+}
+
+.recent-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* --- Bar Chart Card --- */
+.chart-card {
+    flex-basis: 30%;
+    flex-grow: 1;
+    min-height: 250px;
+    background-color: var(--color-bg-card-alt);
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+}
+
+.bar-chart-container {
+    width: 100%;
+    height: 220px;
+    position: relative;
+    border-bottom: 1px solid #ddd; /* X-axis line */
+    padding-left: 30px;
+    margin-top: 1rem;
+}
+
+.y-axis {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    text-align: right;
+    padding-right: 0.5rem;
+    z-index: 5;
+}
+
+.bar-chart {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    gap: 1rem;
+    padding: 0 0.5rem;
+    /* Grid lines */
+    background-image: linear-gradient(
+        to top,
+        transparent 0%,
+        transparent calc(20% - 1px),
+        #eee 20%,
+        transparent 20.1%,
+        transparent calc(40% - 1px),
+        #eee 40%,
+        transparent 40.1%,
+        transparent calc(60% - 1px),
+        #eee 60%,
+        transparent 60.1%,
+        transparent calc(80% - 1px),
+        #eee 80%,
+        transparent 80.1%,
+        transparent calc(100% - 1px),
+        #eee 100%
+    );
+}
+
+.bar-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+    height: 100%;
+    position: relative;
+    z-index: 2;
+}
+
+.bar {
+    width: 80%;
+    max-width: 40px;
+    background-color: #ccc;
+    border-radius: 8px 8px 0 0;
+    margin-top: auto;
+    border: 1px solid #555;
+}
+
+.bar-label {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    margin-top: 0.5rem;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 1200px) {
+    .welcome-card,
+    .stats-container,
+    .top-haircuts-card,
+    .recent-card,
+    .chart-card {
+        flex-basis: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: 80px;
+        flex-direction: row;
+        padding: 0 1.5rem;
+        min-height: auto;
+    }
+
+    .sidebar-top-group {
+        flex-direction: row;
+        gap: 1.5rem;
+    }
+
+    .sidebar-logo {
+        margin-bottom: 0;
+        width: 50px;
+    }
+
+    .sidebar-nav {
+        width: 100%;
+    }
+
+    .sidebar-nav ul {
+        flex-direction: row;
+        gap: 1.5rem;
+    }
+    
+    .sidebar-nav li.active::after {
+        /* Change arrow to be on top */
+        right: 50%;
+        top: -15px;
+        transform: translateX(50%);
+        border-right: 15px solid transparent;
+        border-left: 15px solid transparent;
+        border-bottom: 15px solid var(--color-bg-main);
+        border-top: none;
+    }
+
+    .main-content {
+        padding: 1.5rem;
+    }
+
+    .main-header {
+        padding: 1rem;
+    }
+
+    .header-left h1 {
+        font-size: 1.25rem;
+    }
+
+    .welcome-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .welcome-image {
+        position: static;
+        width: 150px;
+        height: auto;
+        margin-top: 1rem;
+    }
+    
+    .pie-chart-layout {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .chart-card {
+        padding: 1rem;
+    }
+
+    .bar-chart-container {
+        height: 200px;
+        padding-left: 30px;
+    }
+}

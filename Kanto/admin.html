@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanto Kartell - Admin Dashboard</title>
+    
+    <link rel="stylesheet" href="admin_style.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <aside class="sidebar">
+        <div class="sidebar-top-group">
+            <div class="sidebar-logo">
+                <img src="logo.png" alt="Kanto Kartell Logo" class="logo-image">
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active">
+                        <a href="#"><i class="fas fa-th-large"></i></a> </li>
+                    <li>
+                        <a href="#"><i class="fas fa-file-alt"></i></a> </li>
+                    <li>
+                        <a href="#"><i class="fas fa-image"></i></a> </li>
+                    <li>
+                        <a href="#"><i class="fas fa-users"></i></a> </li>
+                    <li>
+                        <a href="#"><i class="fas fa-user"></i></a> </li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="sidebar-logout">
+            <a href="#"><i class="fas fa-sign-out-alt"></i></a> </div>
+    </aside>
+
+    <main class="main-content">
+        
+        <header class="main-header card">
+            <div class="header-left">
+                <i class="fas fa-th-large"></i>
+                <i class="fas fa-play"></i>
+                <h1>Dashboard</h1>
+            </div>
+            <div class="header-right">
+                <i class="fas fa-info-circle"></i>
+            </div>
+        </header>
+
+        <div class="cards-container">
+
+            <div class="card welcome-card">
+                <div class="welcome-text">
+                    <h2>Hello, Name...!</h2>
+                    <p>It's nice to see you here...</p>
+                </div>
+                <div class="welcome-image">
+                    <img src="barber-illustration.png" alt="Barber Illustration">
+                </div>
+            </div>
+
+            <div class="stats-container">
+                <div class="card stat-card">
+                    <span class="stat-number">100</span>
+                    <span class="stat-change increase">+10</span>
+                    <p class="stat-label">Customer this month</p>
+                </div>
+                <div class="card stat-card">
+                    <span class="stat-number">08</span>
+                    <span class="stat-change decrease">-4</span>
+                    <p class="stat-label">Customer today</p>
+                </div>
+            </div>
+
+            <div class="card top-haircuts-card">
+                <h3 class="chart-title">Top Haircuts</h3>
+                <div class="pie-chart-layout">
+                    <div class="pie-chart">
+                        <span class="pie-label" style="top: 25%; left: 25%; transform: translate(-50%, -50%);">43%</span>
+                        <span class="pie-label" style="top: 70%; left: 30%; transform: translate(-50%, -50%);">25%</span>
+                        <span class="pie-label" style="top: 75%; left: 65%; transform: translate(-50%, -50%);">15%</span>
+                        <span class="pie-label" style="top: 55%; left: 80%; transform: translate(-50%, -50%);">10%</span>
+                        <span class="pie-label" style="top: 25%; left: 80%; transform: translate(-50%, -50%); color: #555;">7%</span>
+                    </div>
+                    <ul class="pie-legend">
+                        <li><span class="color-dot" style="background: #f39c12;"></span> Buzz Cut</li>
+                        <li><span class="color-dot" style="background: #f9a825;"></span> Warrior Cut</li>
+                        <li><span class="color-dot" style="background: #fbc02d;"></span> 8 Guard</li>
+                        <li><span class="color-dot" style="background: #fce49c;"></span> Mullet Cut</li>
+                        <li><span class="color-dot" style="background: #fff9c4; border: 1px solid #eee;"></span> Two Block</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card recent-card">
+                <h3>Recent</h3>
+                <table class="recent-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Username</th>
+                            <th>Time</th>
+                            <th>Service Type</th>
+                            <th>Email</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>0004</td>
+                            <td>JohnFelix</td>
+                            <td>2:00pm</td>
+                            <td>Buzz Cut</td>
+                            <td>johnfelix.dizon120@gmail.com</td>
+                        </tr>
+                        <tr>
+                            <td>0029</td>
+                            <td>Jeremiah</td>
+                            <td>1:30pm</td>
+                            <td>Warrior Cut</td>
+                            <td>jeremiah.valencia123@gmail.com</td>
+                        </tr>
+                        <tr>
+                            <td>0005</td>
+                            <td>Shemel</td>
+                            <td>11:30am</td>
+                            <td>Buzz Cut</td>
+                            <td>shemel.manansala@gmail.com</td>
+                        </tr>
+                        <tr>
+                            <td>0011</td>
+                            <td>Christian</td>
+                            <td>11:00am</td>
+                            <td>Buzz Cut</td>
+                            <td>christian.rivera@gmail.com</td>
+                        </tr>
+                        <tr>
+                            <td>0015</td>
+                            <td>John</td>
+                            <td>10:30am</td>
+                            <td>8 Guard</td>
+                            <td>john.rivera@gmail.com</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card chart-card">
+                <h3 class="chart-title">Monthly Customers</h3> <div class="bar-chart-container">
+                    <div class="y-axis"> <span>1000</span>
+                        <span>800</span>
+                        <span>600</span>
+                        <span>400</span>
+                        <span>200</span>
+                        <span>0</span>
+                    </div>
+                    <div class="bar-chart">
+                        <div class="bar-wrapper">
+                            <div class="bar" style="height: 78%; background-color: #a1887f;"></div>
+                            <span class="bar-label">May</span>
+                        </div>
+                        <div class="bar-wrapper">
+                            <div class="bar" style="height: 45%; background-color: #d7ccc8;"></div>
+                            <span class="bar-label">June</span>
+                        </div>
+                        <div class="bar-wrapper">
+                            <div class="bar" style="height: 100%; background-color: #ffe0b2;"></div>
+                            <span class="bar-label">July</span>
+                        </div>
+                        <div class="bar-wrapper">
+                            <div class="bar" style="height: 55%; background-color: #bcaaa4;"></div>
+                            <span class="bar-label">August</span>
+                        </div>
+                        <div class="bar-wrapper">
+                            <div class="bar" style="height: 65%; background-color: #ff8a65;"></div>
+                            <span class="bar-label">September</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div> </main> </body>
+</html>
