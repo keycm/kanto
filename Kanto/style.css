@@ -32,6 +32,17 @@ body {
     background-color: var(--color-bg-dark-page); 
     color: var(--color-text-dark);
     line-height: 1.6;
+    overflow-x: hidden; /* Added to prevent scrollbar during animations */
+    
+    /* --- CSS TO HIDE SCROLLBAR --- */
+    scrollbar-width: none; /* For Firefox */
+    -ms-overflow-style: none;  /* For Internet Explorer and Edge */
+}
+
+/* For Chrome, Safari, and Opera */
+body::-webkit-scrollbar {
+    display: none;
+    /* --- END OF CSS --- */
 }
 
 /* Page container set to Figma frame width */
@@ -59,6 +70,7 @@ h1, h2, h3, h4 { font-weight: 600; }
     text-align: center;
     white-space: nowrap;
     margin-top: 0.5rem; 
+    cursor: pointer; /* Added for modal triggers */
 }
 .btn-primary:hover { 
     background: #ffd54f; /* Lighter yellow */
@@ -81,6 +93,7 @@ h1, h2, h3, h4 { font-weight: 600; }
     font-size: 1rem;
     z-index: 1000;
     transition: background 0.3s ease;
+    cursor: pointer; /* Added for modal triggers */
 }
 .floating-user-icon:hover {
     background: rgba(0, 0, 0, 0.6);
@@ -169,7 +182,7 @@ h1, h2, h3, h4 { font-weight: 600; }
     gap: 1.5rem; 
 }
 .top-haircuts-panel { 
-    width: 20%; 
+    width: 30%; /* MODIFIED */
     min-width: 180px;
 }
 .top-haircuts-panel h3 { font-size: 1.25rem; margin-bottom: 1rem; }
@@ -186,24 +199,11 @@ h1, h2, h3, h4 { font-weight: 600; }
 }
 .top-haircuts-panel img { width: 60px; height: 60px; border-radius: 5px; object-fit: cover; }
 
-/* Video Placeholder (in Hero) */
-.hero-left-content .video-placeholder {
-    width: 35%; 
-    flex-grow: 1;
-    background: var(--color-bg-light);
-    border: 1px solid #eee; 
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 4rem;
-    color: #ccc;
-    min-height: 400px;
-}
+/* Video Placeholder (in Hero) - RULE REMOVED */
 
 /* Queue Panel Styles (now inside left panel) */
 .queue-panel { 
-    width: 45%; 
+    width: 70%; /* MODIFIED */
     min-width: 300px;
 }
 .queue-wrapper { 
@@ -397,13 +397,486 @@ h1, h2, h3, h4 { font-weight: 600; }
 
 /* --- Content Sections (About, Services, Reviews) --- */
 .content-panel {
-    background: var(--color-bg-panel);
+    background: transparent; /* Was var(--color-bg-panel) */
     border-radius: 8px;
     padding: 3rem;
     max-width: 1238px; 
     margin: 2rem auto;
+    box-shadow: none; 
 }
-/* ... (rest of your content styles are unchanged) ... */
+
+/* --- STYLES FOR "ABOUT" SECTION --- */
+.section-title {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+.section-title h2 {
+    font-size: 2.5rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--color-text-dark); 
+}
+.section-title h2 i {
+    font-size: 2rem;
+    color: var(--color-primary); 
+}
+
+.about-item {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    margin-bottom: 2.5rem;
+}
+.about-item:last-child {
+    margin-bottom: 0;
+}
+.about-item-image {
+    flex-basis: 50%;
+    flex-shrink: 0;
+}
+.about-item-image img {
+    border-radius: 8px;
+    width: 100%;
+    object-fit: cover;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+.about-item-text {
+    flex-basis: 50%;
+}
+.about-item-text h3 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+    color: var(--color-text-dark); 
+}
+.about-item-text p {
+    font-size: 1rem;
+    color: #555; 
+    line-height: 1.7;
+}
+
+/* This reverses the first "about-item" to text | image */
+.about-item:nth-child(2) { /* Selects the first .about-item after .section-title */
+    flex-direction: row-reverse; /* Swap image and text for the first item */
+}
+
+
+/* This reverses the second "about-item" back to image | text (default) */
+.about-item:nth-child(3) { /* Selects the second .about-item */
+    flex-direction: row; /* Ensure it's image on left, text on right */
+}
+/* --- END OF "ABOUT" STYLES --- */
+
+
+/* --- STYLES FOR "SERVICES" SECTION --- */
+#services {
+    background-color: var(--color-bg-light); /* Gray background from image */
+    color: var(--color-text-dark); /* Dark text */
+}
+
+/* Use the same title style, but make sure colors are dark */
+#services .section-title h2 {
+    color: var(--color-text-dark);
+}
+#services .section-title h2 i {
+    color: var(--color-primary);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.service-card {
+    background: var(--color-bg-panel); /* White card background */
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+.service-card-image img {
+    width: 100%;
+    height: 250px; /* Give a fixed height */
+    object-fit: cover;
+    display: block;
+}
+
+.service-card-content {
+    padding: 1.25rem;
+}
+
+.service-card-content h4 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-text-dark);
+}
+
+.service-card-content p {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.6;
+}
+/* --- END OF "SERVICES" STYLES --- */
+
+
+/* --- STYLES FOR "REVIEWS" SECTION --- */
+#reviews {
+    background-color: transparent; /* MODIFIED: Was var(--color-bg-light) */
+    color: var(--color-text-dark);
+}
+
+#reviews .section-title h2 {
+    color: var(--color-text-dark);
+}
+#reviews .section-title h2 i {
+    color: var(--color-primary);
+}
+
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.review-card {
+    background: #fdfdfd; /* Slightly off-white like image */
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.review-stars {
+    margin-bottom: 1rem;
+    color: var(--color-accent-yellow); /* Yellow stars */
+}
+
+.review-stars .fas {
+    font-size: 1.25rem;
+}
+
+.review-card p {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.6;
+    flex-grow: 1; /* Make text fill space */
+    margin-bottom: 1.5rem;
+}
+
+.review-author .author-icon {
+    font-size: 1.2rem; /* Icon size */
+    color: var(--color-text-white);
+    background: #121212; /* Black background */
+    border-radius: 50%;
+    width: 40px;  /* Circle size */
+    height: 40px; /* Circle size */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* --- END OF "REVIEWS" STYLES --- */
+
+
+/* --- STYLES FOR "FOOTER" SECTION --- */
+footer {
+    background-color: #1c1c1c; /* Dark footer background */
+    color: var(--color-text-light);
+    padding-top: 4rem;
+    font-size: 0.9rem;
+}
+
+.footer-main {
+    max-width: 1238px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+    gap: 2rem;
+}
+
+.footer-column {
+    flex: 1; /* Each column will try to take equal space */
+    min-width: 220px; /* Minimum width before wrapping */
+}
+
+.footer-column.brand-info {
+    flex-basis: 30%; /* Give brand column more space */
+}
+
+.footer-column h4 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-text-white);
+    margin-bottom: 1.5rem;
+}
+
+.footer-logo h3 {
+    font-family: var(--font-logo);
+    font-size: 2rem;
+    letter-spacing: 13%; 
+    font-weight: 700;
+    color: var(--color-text-white);
+}
+
+.footer-est {
+    font-size: 0.8rem;
+    color: #888;
+}
+
+.footer-tagline {
+    font-style: italic;
+    margin-bottom: 1.5rem;
+}
+
+.footer-socials {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+.footer-socials a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    color: var(--color-text-white);
+    font-size: 1rem;
+    transition: opacity 0.3s ease;
+}
+.footer-socials a:hover {
+    opacity: 0.8;
+}
+.footer-socials .facebook { background-color: #1877F2; }
+.footer-socials .instagram { background-color: #E4405F; }
+.footer-socials .google { background-color: #DB4437; }
+
+.footer-address {
+    font-size: 0.8rem;
+    color: #888;
+    max-width: 250px; /* Limit width */
+}
+
+.footer-column ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.footer-column ul li,
+.footer-column ul li a {
+    color: var(--color-text-light);
+    transition: color 0.3s ease;
+}
+.footer-column ul li a:hover {
+    color: var(--color-accent-yellow);
+}
+
+.hours-info ul li {
+    display: flex;
+    justify-content: space-between;
+    max-width: 250px;
+}
+.hours-info ul li span:nth-child(2) {
+    color: #555; /* Dim the separator */
+}
+
+.footer-bottom {
+    background-color: #121212; /* Even darker bar */
+    color: #777;
+    font-size: 0.8rem;
+    text-align: center;
+    padding: 1.5rem 2rem;
+    margin-top: 3rem;
+    border-top: 1px solid #2a2a2a;
+}
+/* --- END OF "FOOTER" STYLES --- */
+
+
+/* --- NEW STYLES FOR MODALS --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    z-index: 2000;
+    display: none; /* Hidden by default */
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* This class is added by JS to show the modal */
+.modal-overlay.show {
+    display: flex;
+    opacity: 1;
+}
+
+.modal-container {
+    display: flex;
+    background: var(--color-bg-panel);
+    width: 90%;
+    max-width: 900px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    position: relative;
+    
+    /* Animation for modal popping in */
+    transform: scale(0.95);
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+}
+.modal-overlay.show .modal-container {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-size: 1.2rem;
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: background 0.3s ease;
+}
+.modal-close-btn:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.modal-left {
+    flex-basis: 45%;
+    background: var(--color-bg-light);
+    padding: 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--color-text-dark);
+}
+.modal-left img {
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    margin-bottom: 1.5rem;
+}
+.modal-left h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+.modal-left p {
+    font-size: 1rem;
+    color: #555;
+}
+
+.modal-right {
+    flex-basis: 55%;
+    background: #121212;
+    padding: 3rem;
+    color: var(--color-text-white);
+}
+.modal-right h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+.form-group {
+    margin-bottom: 1.25rem;
+}
+.form-group label {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-bottom: 0.5rem;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    background: #222;
+    border: 1px solid #444;
+    border-radius: 8px;
+    color: var(--color-text-white);
+    font-family: var(--font-primary);
+    font-size: 1rem;
+}
+.form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.btn-modal {
+    display: block;
+    width: 100%;
+    padding: 0.9rem;
+    border: none;
+    border-radius: 8px;
+    background: var(--color-bg-panel);
+    color: var(--color-text-dark);
+    font-family: var(--font-primary);
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: 1.5rem;
+}
+.btn-modal:hover {
+    background: #ddd;
+}
+
+.form-link {
+    display: block;
+    text-align: right;
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-top: -0.5rem;
+    margin-bottom: 1.5rem;
+}
+.form-link:hover {
+    color: var(--color-accent-yellow);
+}
+
+.form-toggle-text {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+}
+.form-toggle-text a {
+    color: var(--color-text-white);
+    font-weight: 600;
+    text-decoration: underline;
+}
+.form-toggle-text a:hover {
+    color: var(--color-accent-yellow);
+}
+/* --- END OF MODAL STYLES --- */
 
 
 /* --- Responsive Design (Adjusted) --- */
@@ -440,6 +913,32 @@ h1, h2, h3, h4 { font-weight: 600; }
     }
 }
 
+/* --- MEDIA QUERY FOR TABLETS --- */
+@media (max-width: 1024px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets */
+    }
+    .reviews-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets */
+    }
+
+    /* Footer: 2x2 grid */
+    .footer-column {
+        flex-basis: 45%; /* Two columns */
+    }
+    .footer-column.brand-info {
+        flex-basis: 100%; /* Brand column full width */
+        text-align: center;
+    }
+    .footer-socials {
+        justify-content: center;
+    }
+    .footer-address {
+        margin: 0 auto;
+    }
+}
+/* --- END OF TABLET MEDIA QUERY --- */
+
 @media (max-width: 768px) {
     .hero-nav { flex-direction: column; align-items: flex-start; gap: 1rem; }
     
@@ -459,7 +958,23 @@ h1, h2, h3, h4 { font-weight: 600; }
     .queue-wrapper { width: 100%; }
     .top-haircuts-panel li { max-width: 100%; }
     
+    /* --- MODIFIED MEDIA QUERY FOR "ABOUT" --- */
     .about-container { flex-direction: column; }
+    .about-item {
+        flex-direction: column !important; /* Stack image and text */
+        gap: 1.5rem;
+    }
+    .about-item-text {
+        order: 2 !important; /* Always put text below image on mobile */
+    }
+    .about-item-image {
+        order: 1 !important;
+        width: 100%;
+    }
+    .about-item-text h3 {
+        text-align: center;
+    }
+    /* --- END OF MODIFICATION --- */
     
     .sidebar-card-container {
         flex-direction: column;
@@ -468,4 +983,58 @@ h1, h2, h3, h4 { font-weight: 600; }
     .announcement-panel, .schedule-panel {
         padding-top: 1.5rem; 
     }
+
+    /* --- ADDED FOR SERVICES & REVIEWS --- */
+    .services-grid {
+        grid-template-columns: 1fr; /* Stack to single column */
+    }
+    .reviews-grid {
+        grid-template-columns: 1fr; /* Stack to single column */
+    }
+    .service-card-image img {
+        height: auto; /* Let height be automatic on mobile */
+    }
+    /* --- END OF ADDITION --- */
+
+    /* --- ADDED FOR FOOTER --- */
+    .footer-main {
+        flex-direction: column; /* Stack all columns */
+        align-items: center; /* Center-align content */
+        text-align: center;
+    }
+    .footer-column {
+        flex-basis: 100%; /* Each column is full width */
+        align-items: center;
+    }
+    .footer-column ul {
+        align-items: center;
+    }
+    .hours-info ul li {
+        max-width: 100%;
+        width: 300px; /* Give a bit of width */
+    }
+    /* --- END OF ADDITION --- */
+
+    /* --- ADDED FOR MODALS --- */
+    .modal-container {
+        flex-direction: column;
+        width: 95%;
+        max-height: 90vh; /* Set max height for small screens */
+        overflow-y: auto; /* Allow modal content to scroll */
+    }
+    .modal-left {
+        display: none; /* Hide the left panel on mobile */
+    }
+    .modal-right {
+        padding: 2rem;
+    }
+    .modal-right h2 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
+    .modal-close-btn {
+        color: black;
+        background: white;
+    }
+    /* --- END OF ADDITION --- */
 }
