@@ -13,12 +13,14 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
 </head>
 <body>
 
     <div class="page-container">
         
-        <a href="#" class="floating-user-icon">
+        <a href="#" class="floating-user-icon" id="openSignInModal">
             <i class="fas fa-user"></i>
         </a>
 
@@ -26,18 +28,18 @@
             <section id="hero">
                 <div class="hero-container">
 
-                    <div class="hero-top-bar">
+                    <div class="hero-top-bar" data-aos="fade-in" data-aos-delay="200">
                         <div class="hero-top-logo">
                             <img src="https://loremflickr.com/170/170/barber,pole,logo,monochrome?random=11" alt="Kanto Kartell Circle Logo">
                         </div>
                         <div class="hero-top-booking-info">
                             <h4>Start your reservation!</h4>
                             <p>G Gupitni | G Tambayani</p>
-                            <a href="#" class="btn-primary">Start now</a> 
+                            <a href="#" class="btn-primary" id="openReservationModal">Start now</a> 
                         </div>
                     </div>
                     
-                    <div class="hero-left-panel">
+                    <div class="hero-left-panel" data-aos="fade-in">
                         
                         <nav class="hero-nav">
                             <div class="logo">
@@ -65,10 +67,6 @@
                                 </ul>
                             </div>
 
-                            <div class="video-placeholder">
-                                <i class="fas fa-video-slash"></i>
-                            </div>
-                            
                             <div class="queue-panel">
                                 <h3><i class="fas fa-calendar-alt"></i> Currently In Line</h3>
                                 <div class="queue-wrapper">
@@ -92,7 +90,7 @@
                         
                     </div>
                     
-                    <div class="hero-right-panel">
+                    <div class="hero-right-panel" data-aos="fade-in" data-aos-delay="100">
                         
                         <div class="sidebar-card-container">
                             <div class="announcement-panel">
@@ -137,20 +135,390 @@
                 </div>
             </section>
             
-            <section id="about" class="content-panel">
-                </section>
+            <section id="about" class="content-panel" data-aos="fade-in">
+                <div class="about-container">
+                    <div class="section-title">
+                        <h2><i class="fas fa-store"></i> About</h2>
+                    </div>
 
-            <section id="services" class="content-panel">
-                </section>
+                    <div class="about-item">
+                        <div class="about-item-image">
+                            <img src="https://loremflickr.com/500/300/barbershop,sign?random=1" alt="Kanto Kartell Sign">
+                        </div>
+                        <div class="about-item-text">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        </div>
+                    </div>
 
-            <section id="reviews" class="content-panel">
-                </section>
+                    <div class="about-item">
+                        <div class="about-item-image">
+                            <img src="https://loremflickr.com/500/300/barber,tools?random=2" alt="Barber Tools">
+                        </div>
+                        <div class="about-item-text">
+                            <h3>Barber</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="services" class="content-panel" data-aos="fade-in">
+                <div class="section-title">
+                    <h2><i class="fas fa-cut"></i> Services</h2>
+                </div>
+
+                <div class="services-grid">
+                    
+                    <div class="service-card" data-aos="fade-in" data-aos-delay="0">
+                        <div class="service-card-image">
+                            <img src="https://loremflickr.com/400/300/barber,tools?random=3" alt="Buzz Cut Tools">
+                        </div>
+                        <div class="service-card-content">
+                            <h4>Buzz Cut</h4>
+                            <p>A clean, low-maintenance style achieved with a single guard length all over. Perfect for a sharp, uniform look that's easy to manage.</p>
+                        </div>
+                    </div>
+
+                    <div class="service-card" data-aos="fade-in" data-aos-delay="100">
+                        <div class="service-card-image">
+                            <img src="https://loremflickr.com/400/300/haircut,fade?random=4" alt="Warrior Cut">
+                        </div>
+                        <div class="service-card-content">
+                            <h4>Warrior Cut</h4>
+                            <p>A bold and edgy haircut that blends short sides with longer top sections for a striking, confident style inspired by classic military looks.</p>
+                        </div>
+                    </div>
+
+                    <div class="service-card" data-aos="fade-in" data-aos-delay="200">
+                        <div class="service-card-image">
+                            <img src="https://loremflickr.com/400/300/haircut,fade?random=5" alt="8 Guard">
+                        </div>
+                        <div class="service-card-content">
+                            <h4>8 Guard</h4>
+                            <p>A medium-length clipper cut using a #8 guard for a balanced, natural look. Ideal for those who want a neat yet full hairstyle.</p>
+                        </div>
+                    </div>
+
+                    <div class="service-card" data-aos="fade-in" data-aos-delay="0">
+                        <div class="service-card-image">
+                            <img src="https://loremflickr.com/400/300/haircut,mullet?random=6" alt="Mullet Cut">
+                        </div>
+                        <div class="service-card-content">
+                            <h4>Mullet Cut</h4>
+                            <p>Short in the front and sides, long in the back — this retro-inspired cut brings attitude and flair with a modern twist.</p>
+                        </div>
+                    </div>
+
+                    <div class="service-card" data-aos="fade-in" data-aos-delay="100">
+                        <div class="service-card-image">
+                            <img src="https://loremflickr.com/400/300/haircut,korean?random=7" alt="Two Block">
+                        </div>
+                        <div class="service-card-content">
+                            <h4>Two Block</h4>
+                            <p>A trendy Korean-inspired hairstyle featuring short sides and back with longer layers on top for versatile styling and a clean outline.</p>
+                        </div>
+                    </div>
+
+                    <div class="service-card" data-aos="fade-in" data-aos-delay="200">
+                        <div class="service-card-image">
+                            <img src="https://loremflickr.com/400/300/haircut,fringe?random=8" alt="Fringe">
+                        </div>
+                        <div class="service-card-content">
+                            <h4>Fringe</h4>
+                            <p>A stylish look with longer hair at the front that falls naturally over the forehead. Great for adding texture, framing the face, and giving a youthful, modern vibe.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section id="reviews" class="content-panel" data-aos="fade-in">
+                <div class="section-title">
+                    <h2><i class="fas fa-comments"></i> Reviews</h2>
+                </div>
+                <div class="reviews-grid">
+                    
+                    <div class="review-card" data-aos="fade-in" data-aos-delay="0">
+                        <div class="review-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                        <div class="review-author">
+                            <div class="author-icon">
+                                <i class="fas fa-cut"></i> 
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="review-card" data-aos="fade-in" data-aos-delay="100">
+                        <div class="review-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                        <div class="review-author">
+                            <div class="author-icon">
+                                <i class="fas fa-cut"></i> 
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="review-card" data-aos="fade-in" data-aos-delay="200">
+                        <div class="review-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                        <div class="review-author">
+                            <div class="author-icon">
+                                <i class="fas fa-cut"></i> 
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="review-card" data-aos="fade-in" data-aos-delay="0">
+                        <div class="review-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                        <div class="review-author">
+                            <div class="author-icon">
+                                <i class="fas fa-cut"></i> 
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="review-card" data-aos="fade-in" data-aos-delay="100">
+                        <div class="review-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                        <div class="review-author">
+                            <div class="author-icon">
+                                <i class="fas fa-cut"></i> 
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="review-card" data-aos="fade-in" data-aos-delay="200">
+                        <div class="review-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                        <div class="review-author">
+                            <div class="author-icon">
+                                <i class="fas fa-cut"></i> 
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
         </main>
     </div>
 
-    <footer>
-        </footer>
+    <footer data-aos="fade-in" data-aos-anchor-placement="top-bottom">
+        <div class="footer-main">
+            <div class="footer-column brand-info">
+                <div class="footer-logo">
+                    <h3>KANTO KARTELL</h3>
+                </div>
+                <p class="footer-est">EST ★ 2024</p>
+                <p class="footer-tagline">Feel Sharp, Stay Sharp</p>
+                <div class="footer-socials">
+                    <a href="#" class="social-icon facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon google"><i class="fab fa-google"></i></a> 
+                </div>
+                <p class="footer-address">BLK 33 LOT 70 Model Community, Pio, Porac, Pampanga</p>
+            </div>
 
+            <div class="footer-column quick-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#reviews">Reviews</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column contact-info">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li>BLK 33 LOT 70 Model Community, Pio, Porac, Pampanga</li>
+                    <li>kantokartell@gmail.com</li>
+                    <li>Phone: +63 912 345 6789</li>
+                </ul>
+            </div>
+
+            <div class="footer-column hours-info">
+                <h4>Hours</h4>
+                <ul>
+                    <li><span>Monday</span> <span>|</span> <span>9:30am - 7:00pm</span></li>
+                    <li><span>Tuesday</span> <span>|</span> <span>Closed</span></li>
+                    <li><span>Wed - Sat</span> <span>|</span> <span>9:30am - 7:00pm</span></li>
+                    <li><span>Sunday</span> <span>|</span> <span>9:00am - 7:00pm</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 Kanto Kartell. All right reserved.</p>
+        </div>
+    </footer>
+
+    
+    <div class="modal-overlay" id="signInModal">
+        <div class="modal-container">
+            <button class="modal-close-btn">&times;</button>
+            <div class="modal-left">
+                <img src="https://loremflickr.com/170/170/barber,pole,logo,monochrome?random=11" alt="Kanto Kartell Logo">
+                <h3>Look Sharp, Stay Sharp</h3>
+                <p>G Gupitan! G Tambayan!</p>
+            </div>
+            <div class="modal-right">
+                <form action="#">
+                    <h2>Sign In</h2>
+                    <div class="form-group">
+                        <label for="signin-username">Username or Email</label>
+                        <input type="text" id="signin-username" placeholder="Enter your username or email">
+                    </div>
+                    <div class="form-group">
+                        <label for="signin-password">Password</label>
+                        <input type="password" id="signin-password" placeholder="Enter your password">
+                    </div>
+                    <a href="#" class="form-link" id="openResetFromLogin">Forgot Password?</a>
+                    <button type="submit" class="btn-modal">Sign In</button>
+                    <p class="form-toggle-text">Don't have account? <a href="#" id="openRegisterFromLogin">Register here</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="registerModal">
+        <div class="modal-container">
+            <button class="modal-close-btn">&times;</button>
+            <div class="modal-left">
+                <img src="https://loremflickr.com/170/170/barber,pole,logo,monochrome?random=11" alt="Kanto Kartell Logo">
+                <h3>Look Sharp, Stay Sharp</h3>
+                <p>G Gupitan! G Tambayan!</p>
+            </div>
+            <div class="modal-right">
+                <form action="#">
+                    <h2>Register</h2>
+                    <div class="form-group">
+                        <label for="register-username">Username</label>
+                        <input type="text" id="register-username" placeholder="Enter your username">
+                    </div>
+                    <div class="form-group">
+                        <label for="register-email">Email Address</label>
+                        <input type="email" id="register-email" placeholder="Enter your email">
+                    </div>
+                    <div class="form-group">
+                        <label for="register-password">Password</label>
+                        <input type="password" id="register-password" placeholder="Create a password">
+                    </div>
+                    <div class="form-group">
+                        <label for="register-confirm-password">Confirm Password</label>
+                        <input type="password" id="register-confirm-password" placeholder="Confirm your password">
+                    </div>
+                    <button type="submit" class="btn-modal">Register</button>
+                    <p class="form-toggle-text">Already have an account? <a href="#" id="openLoginFromRegister">Sign in here</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="resetPasswordModal">
+        <div class="modal-container">
+            <button class="modal-close-btn">&times;</button>
+            <div class="modal-left">
+                <img src="https://loremflickr.com/170/170/barber,pole,logo,monochrome?random=11" alt="Kanto Kartell Logo">
+                <h3>Look Sharp, Stay Sharp</h3>
+                <p>G Gupitan! G Tambayan!</p>
+            </div>
+            <div class="modal-right">
+                <form action="#">
+                    <h2>Reset Password</h2>
+                    <p class="form-toggle-text" style="margin-bottom: 1rem;">Enter your email to receive a reset code.</p>
+                    <div class="form-group">
+                        <label for="reset-email">Email address</label>
+                        <input type="email" id="reset-email" placeholder="Enter email address">
+                    </div>
+                    <button type="submit" class="btn-modal">Send Code</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="reservationModal">
+        <div class="modal-container">
+            <button class="modal-close-btn">&times;</button>
+            <div class="modal-left">
+                <img src="https://loremflickr.com/170/170/barber,pole,logo,monochrome?random=11" alt="Kanto Kartell Logo">
+                <h3>Look Sharp, Stay Sharp</h3>
+                <p>G Gupitan! G Tambayan!</p>
+            </div>
+            <div class="modal-right">
+                <form action="#">
+                    <h2>Reservation</h2>
+                    <div class="form-group">
+                        <label for="reservation-time">Time</label>
+                        <select id="reservation-time">
+                            <option value="" disabled selected>Select Time</option>
+                            <option value="10:00">10:00 AM</option>
+                            <option value="10:30">10:30 AM</option>
+                            <option value="11:00">11:00 AM</option>
+                            <option value="11:30">11:30 AM</option>
+                            <option value="13:00">1:00 PM</option>
+                            <option value="13:30">1:30 PM</option>
+                            </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="reservation-service">Service Type</label>
+                        <input type="text" id="reservation-service" placeholder="e.g., Buzz Cut">
+                    </div>
+                    <div class="form-group">
+                        <label for="reservation-remarks">Remarks / Notes</label>
+                        <textarea id="reservation-remarks" rows="4" placeholder="Any special requests?"></textarea>
+                    </div>
+                    <button type="submit" class="btn-modal">Reserve</button>
+                </form>
+            </div>
+        </div>
+    </div>
     <script src="script.js"></script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800, // Animation duration in milliseconds
+            once: true, // Whether animation should happen only once
+            offset: 50 // Offset (in px) from the original trigger point
+        });
+    </script>
 </body>
 </html>
