@@ -50,4 +50,94 @@ document.addEventListener('DOMContentLoaded', () => {
         setInterval(updateQueue, 5000);
     }
 
+    // ==== NEW MODAL JAVASCRIPT ====
+
+    // Get all modals
+    const signInModal = document.getElementById('signInModal');
+    const registerModal = document.getElementById('registerModal');
+    const resetPasswordModal = document.getElementById('resetPasswordModal');
+    const reservationModal = document.getElementById('reservationModal');
+    const allModals = document.querySelectorAll('.modal-overlay');
+
+    // Get all trigger buttons
+    const openSignInBtn = document.getElementById('openSignInModal');
+    const openReservationBtn = document.getElementById('openReservationModal');
+
+    // Get all close buttons
+    const allCloseBtns = document.querySelectorAll('.modal-close-btn');
+
+    // Get inter-modal links
+    const openRegisterLink = document.getElementById('openRegisterFromLogin');
+    const openLoginLink = document.getElementById('openLoginFromRegister');
+    const openResetLink = document.getElementById('openResetFromLogin');
+
+    // Helper functions
+    const openModal = (modal) => {
+        if (modal) modal.classList.add('show');
+    };
+
+    const closeModal = (modal) => {
+        if (modal) modal.classList.remove('show');
+    };
+
+    // --- Event Listeners ---
+
+    // Listen for open modal triggers
+    if (openSignInBtn) {
+        openSignInBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            openModal(signInModal);
+        });
+    }
+
+    if (openReservationBtn) {
+        openReservationBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            openModal(reservationModal);
+        });
+    }
+
+    // Listen for close buttons
+    allCloseBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const modal = btn.closest('.modal-overlay');
+            closeModal(modal);
+        });
+    });
+
+    // Listen for overlay click to close
+    allModals.forEach(modal => {
+        modal.addEventListener('click', (e) => {
+            // Check if the click is on the overlay itself, not the content
+            if (e.target === modal) {
+                closeModal(modal);
+            }
+        });
+    });
+
+    // Listen for inter-modal links
+    if (openRegisterLink) {
+        openRegisterLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            closeModal(signInModal);
+            openModal(registerModal);
+        });
+    }
+
+    if (openLoginLink) {
+        openLoginLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            closeModal(registerModal);
+            openModal(signInModal);
+        });
+    }
+
+    if (openResetLink) {
+        openResetLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            closeModal(signInModal);
+            openModal(resetPasswordModal);
+        });
+    }
+
 });
