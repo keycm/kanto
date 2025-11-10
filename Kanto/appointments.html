@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanto Kartell - Reservations</title>
+    
+    <link rel="stylesheet" href="admin_style.css">
+    <link rel="stylesheet" href="Appoinment.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <aside class="sidebar">
+        <div class="sidebar-top-group">
+            <div class="sidebar-logo">
+                <img src="kanto.png" alt="Kanto Kartell Logo" class="logo-image">
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul>
+                    <li>
+                        <a href="admin.html"><i class="fas fa-th-large"></i></a> 
+                    </li>
+                    <li class="active">
+                        <a href="appointments.html"><i class="fas fa-calendar-alt"></i></a> 
+                    </li>
+                    <li>
+                        <a href="#"><i class="fas fa-image"></i></a> 
+                    </li>
+                    <li>
+                        <a href="#"><i class="fas fa-users"></i></a> 
+                    </li>
+                    <li>
+                        <a href="#"><i class="fas fa-user-cog"></i></a> 
+                    </li>
+                    <li>
+                        <a href="#"><i class="fas fa-book"></i></a> 
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="sidebar-logout">
+            <a href="#"><i class="fas fa-sign-out-alt"></i></a> 
+        </div>
+    </aside>
+
+    <main class="main-content">
+        
+        <header class="main-header" style="
+            background: #ffffff; 
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            flex-shrink: 0;
+        ">
+            <div class="header-left">
+                <i class="fas fa-calendar-alt"></i>
+                <i class="fas fa-play"></i>
+                <h1>Reservations</h1>
+            </div>
+            <div class="header-right">
+                <i class="fas fa-info-circle"></i>
+            </div>
+        </header>
+
+        <div class="cards-container reservations-page">
+            <div class="card full-width-table-card">
+                
+                <div class="table-controls">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search...">
+                    </div>
+                    <button class="new-reservation-btn">
+                        <i class="fas fa-plus"></i>
+                        New Reservation
+                    </button>
+                </div>
+                
+                <div class="table-body-wrapper">
+                    <table class="reservations-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Username</th>
+                                <th>Time</th>
+                                <th>Service Type</th>
+                                <th>Remarks / Notes</th>
+                                <th>Email</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>0004</td>
+                                <td>JohnFelix</td>
+                                <td>10:00am</td>
+                                <td>Buzz Cut</td>
+                                <td>
+                                    <i class="fas fa-edit"></i>
+                                </td>
+                                <td>johnfelix.dizon120@gmail.com</td>
+                                <td class="status-buttons" style="
+                                    display: flex; 
+                                    gap: 0.5rem; 
+                                    justify-content: center; 
+                                    padding: 0.5rem 0;
+                                ">
+                                    <button class="status-btn start" style="
+                                        padding: 0.5rem 0.8rem; 
+                                        font-size: 0.8rem; 
+                                        max-width: 80px;
+                                    ">Start</button>
+                                    <button class="status-btn finish" style="
+                                        padding: 0.5rem 0.8rem; 
+                                        font-size: 0.8rem; 
+                                        max-width: 80px;
+                                    ">Finish</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>0029</td>
+                                <td>Jeremiah</td>
+                                <td>10:30am</td>
+                                <td>Warrior Cut</td>
+                                <td>
+                                    <i class="fas fa-edit"></i>
+                                </td>
+                                <td>jeremiah.valencia123@gmail.com</td>
+                                <td class="status-buttons" style="
+                                    display: flex; 
+                                    gap: 0.5rem; 
+                                    justify-content: center; 
+                                    padding: 0.5rem 0;
+                                ">
+                                    <button class="status-btn start" style="
+                                        padding: 0.5rem 0.8rem; 
+                                        font-size: 0.8rem; 
+                                        max-width: 80px;
+                                    ">Start</button>
+                                    <button class="status-btn finish" style="
+                                        padding: 0.5rem 0.8rem; 
+                                        font-size: 0.8rem; 
+                                        max-width: 80px;
+                                    ">Finish</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>0005</td>
+                                <td>Shemel</td>
+                                <td>1:00pm</td>
+                                <td>Buzz Cut</td>
+                                <td>
+                                    <i class="fas fa-edit"></i>
+                                </td>
+                                <td>shemel.manansala@gmail.com</td>
+                                <td class="status-buttons" style="
+                                    display: flex; 
+                                    gap: 0.5rem; 
+                                    justify-content: center; 
+                                    padding: 0.5rem 0;
+                                ">
+                                    <button class="status-btn start" style="
+                                        padding: 0.5rem 0.8rem; 
+                                        font-size: 0.8rem; 
+                                        max-width: 80px;
+                                    ">Start</button>
+                                    <button class="status-btn finish" style="
+                                        padding: 0.5rem 0.8rem; 
+                                        font-size: 0.8rem; 
+                                        max-width: 80px;
+                                    ">Finish</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>0011</td>
+                                <td>Christian</td>
+                                <td>3:00pm</td>
+                                <td>Buzz Cut</td>
+                                <td>
+                                    <i class="fas fa-edit"></i>
+                                </td>
+                                <td>christian.rivera@gmail.com</td>
+                                <td class="status-buttons" style="
+                                    display: flex; 
+                                    gap: 0.5rem; 
+                                    justify-content: center; 
+                                    padding: 0.5rem 0;
+                                ">
+                                    <button class="status-btn start" style="
+                                        padding: 0.5rem 0.8rem; 
+                                        font-size: 0.8rem; 
+                                        max-width: 80px;
+                                    ">Start</button>
+                                    <button class="status-btn finish" style="
+                                        padding: 0.5rem 0.8rem; 
+                                        font-size: 0.8rem; 
+                                        max-width: 80px;
+                                    ">Finish</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>0015</td>
+                                <td>John</td>
+                                <td>3:30pm</td>
+                                <td>8 Guard</td>
+                                <td>
+                                    <i class="fas fa-edit"></i>
+                                </td>
+                                <td>john.rivera@gmail.com</td>
+                                <td class="status-buttons" style="
+                                    display: flex; 
+                                    gap: 0.5rem; 
+                                    justify-content: center; 
+                                    padding: 0.5rem 0;
+                                ">
+                                    <button class="status-btn start" style="
+                                        padding: 0.5rem 0.8rem; 
+                                        font-size: 0.8rem; 
+                                        max-width: 80px;
+                                    ">Start</button>
+                                    <button class="status-btn finish" style="
+                                        padding: 0.5rem 0.8rem; 
+                                        font-size: 0.8rem; 
+                                        max-width: 80px;
+                                    ">Finish</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

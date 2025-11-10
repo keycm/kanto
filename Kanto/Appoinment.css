@@ -1,0 +1,204 @@
+/* ======== RESERVATIONS PAGE STYLES (Specific to appointments.html) ======== */
+
+/* Container and Card Layout */
+.cards-container.reservations-page {
+    flex-direction: column; 
+    flex-grow: 1;
+    min-height: 0;
+}
+
+.full-width-table-card {
+    padding: 0; 
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; 
+}
+
+/* ======== TABLE CONTROLS (Search and Button) ======== */
+
+.table-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 1.5rem 1rem; 
+    flex-shrink: 0;
+    background-color: var(--color-bg-card);
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    background-color: var(--color-bg-card-alt); 
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    width: 300px;
+}
+
+.search-box i {
+    color: var(--color-text-muted);
+    margin-right: 0.75rem;
+}
+
+.search-box input {
+    border: none;
+    background: transparent;
+    font-family: var(--font-primary);
+    font-size: 0.9rem;
+    width: 100%;
+    color: var(--color-text-dark);
+}
+
+.search-box input:focus {
+    outline: none;
+}
+
+.new-reservation-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #0e0e0e; 
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    flex-shrink: 0;
+}
+
+.new-reservation-btn:hover {
+    background-color: #333;
+}
+
+/* ======== TABLE STYLES ======== */
+
+.table-body-wrapper {
+    flex-grow: 1;
+    overflow-y: auto; /* Enable vertical scrolling for the table body */
+    background-color: var(--color-bg-card); 
+    border-radius: 0 0 12px 12px; /* Set radius only for the bottom corners */
+}
+
+.reservations-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1rem; /* Increased font size for content */
+    table-layout: fixed; 
+}
+
+/* Styles for both TH and TD */
+.reservations-table th,
+.reservations-table td {
+    padding: 1rem 1.2rem; 
+    text-align: center; /* Centered alignment for all cells */
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Header (TH) Styles */
+.reservations-table thead {
+    background-color: #0e0e0e; 
+    color: var(--color-text-light);
+    position: sticky; /* Make header sticky */
+    top: 0; 
+    z-index: 10;
+}
+
+.reservations-table th {
+    font-weight: 600;
+    color: #f0f0f0; 
+    border-bottom: 1px solid #333; 
+}
+
+/* Body (TD) Styles */
+.reservations-table td {
+    color: var(--color-text-dark);
+    border-bottom: 1px solid #f0f0f0; 
+    background-color: var(--color-bg-card); 
+}
+
+/* Remove bottom border from the last row */
+.reservations-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Column Widths (Shared by thead and tbody) */
+.reservations-table th:nth-child(1), /* ID */
+.reservations-table td:nth-child(1) {
+    width: 6%;
+}
+.reservations-table th:nth-child(2), /* Username */
+.reservations-table td:nth-child(2) {
+    width: 15%; 
+}
+.reservations-table th:nth-child(3), /* Time */
+.reservations-table td:nth-child(3) {
+    width: 10%;
+}
+.reservations-table th:nth-child(4), /* Service Type */
+.reservations-table td:nth-child(4) {
+    width: 15%; 
+}
+.reservations-table th:nth-child(5), /* Remarks / Notes */
+.reservations-table td:nth-child(5) {
+    width: 8%; 
+    text-align: center; 
+}
+.reservations-table th:nth-child(6), /* Email */
+.reservations-table td:nth-child(6) {
+    width: 25%;
+}
+.reservations-table th:nth-child(7), /* Status */
+.reservations-table td:nth-child(7) {
+    width: 21%; 
+    text-align: center; 
+}
+
+/* Remarks / Notes Icon */
+.reservations-table td i.fa-edit {
+    color: var(--color-text-dark);
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+/* Status Buttons (External CSS kept only for colors/base properties) */
+.status-btn {
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+    flex-grow: 1; 
+}
+
+.status-btn.start {
+    background-color: var(--color-increase); 
+    color: white;
+}
+
+.status-btn.finish {
+    background-color: var(--color-decrease); 
+    color: white;
+}
+
+/* Responsive Adjustments for Reservations Table */
+@media (max-width: 768px) {
+    .reservations-table {
+        font-size: 0.8rem;
+    }
+    
+    .reservations-table th:nth-child(5), /* Remarks */
+    .reservations-table td:nth-child(5) {
+        display: none; 
+    }
+    .reservations-table th:nth-child(6), /* Email */
+    .reservations-table td:nth-child(6) {
+        display: none; 
+    }
+    /* The inline styles will prevent the buttons from stacking on mobile 
+       unless you add a separate media query to target the inline styles. */
+}
